@@ -1,15 +1,15 @@
 import { Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { Box, display, margin } from '@mui/system';
+import { Box } from '@mui/system';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
-FiltersByPrice.propTypes = {
+FilterByPrice.propTypes = {
     onChange: PropTypes.func,
 };
 
-function FiltersByPrice({ onChange }) {
+function FilterByPrice({ onChange }) {
 
     const [values, setValues] = useState({
         salePrice_gte: 0,
@@ -49,7 +49,7 @@ function FiltersByPrice({ onChange }) {
                     marginBottom: 1,
                 }}
             >
-                <TextField
+                <TextField 
                     id="outlined-basic" variant="outlined" size="small"
                     name="salePrice_gte" values={values.salePrice_gte} onChange={handleChange} />
                 <span
@@ -62,13 +62,14 @@ function FiltersByPrice({ onChange }) {
                     id="outlined-basic" variant="outlined" size="small"
                     name="salePrice_lte" values={values.salePrice_lte} onChange={handleChange} />
             </Box>
-            <p></p>
+         
             <Button
                 variant="contained"
                 onClick={handleClick}
             > Áp dụng</Button>
+            <p></p>
         </Box>
     );
 }
 
-export default FiltersByPrice;
+export default FilterByPrice;

@@ -7,6 +7,7 @@ import * as yup from "yup";
 import { Avatar, Button, Typography } from '@material-ui/core';
 import { LockOutlined } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
+import PasswordField from '../../../../components/form-controls/PasswordField';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -27,21 +28,19 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(2, 0, 0, 0),
     },
 
-  }));
+}));
 
 
 RegisterForm.propTypes = {
-    onSubmit: PropTypes.func, 
+    onSubmit: PropTypes.func,
 };
 
 function RegisterForm(props) {
     const classes = useStyles();
 
     const schema = yup.object().shape({
-        title: yup.string()
-        .required('please enter title')
-        .min(5, 'tiele is too short'),
-      });
+        fullname: yup.string().required(' pls enter your full name'),
+    });
 
     const form = useForm({
         defaultValues: {
@@ -55,7 +54,7 @@ function RegisterForm(props) {
 
     const handleSubmit = (values) => {
         // console.log('Todo Form', values);
-        const {onSubmit} = props;
+        const { onSubmit } = props;
         if (onSubmit) {
             onSubmit(values);
         }
@@ -65,7 +64,7 @@ function RegisterForm(props) {
 
     return (
         <div className={classes.root}>
-            <Avatar className={classes.avatar}> 
+            <Avatar className={classes.avatar}>
                 <LockOutlined></LockOutlined>
             </Avatar>
 
@@ -74,17 +73,17 @@ function RegisterForm(props) {
             </Typography>
 
 
-        <form onSubmit={form.handleSubmit(handleSubmit)} >
-         
-            <InputField name="fullname" label="Full Name" form={form}/>
-            <InputField name="email" label="Email" form={form}/>
-            <InputField name="password" label="Password" form={form}/>
-            <InputField name="retypePassword" label="Retype Password" form={form}/>
+            <form onSubmit={form.handleSubmit(handleSubmit)} >
 
-            <Button className={classes.submit} variant="contained" color='primary' fullWidth >
-                Tao tai khoan
-            </Button>
-        </form>
+                <InputField name="fullname" label="Full Name" form={form} />
+                <InputField name="email" label="Email" form={form} />
+                <PasswordField name="password" label="Password" form={form} />
+                <PasswordField name="retypePassword" label="Retype Password" form={form} />
+
+                <Button className={classes.submit} variant="contained" color='primary' fullWidth >
+                    Tao tai khoan
+                </Button>
+            </form>
 
         </div>
     );

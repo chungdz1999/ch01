@@ -5,11 +5,11 @@ import React, { useEffect, useState } from 'react';
 import categogyApi from '../../../../api/categoryApi';
 
 
-FiltersByCategory.propTypes = {
+FilterByCategory.propTypes = {
     onChange: PropTypes.func,
 };
 
-function FiltersByCategory({ onChange }) {
+function FilterByCategory({ onChange }) {
     const [categoryList, setCatogoryList] = useState([]);
 
     useEffect(() => {
@@ -62,4 +62,4 @@ function FiltersByCategory({ onChange }) {
     );
 }
 
-export default FiltersByCategory;
+export default FilterByCategory;

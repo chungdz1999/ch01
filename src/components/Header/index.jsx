@@ -37,7 +37,9 @@ export default function Header() {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleClose = (_event, reason) => {
+    // ko the thoat tru khi bam cancel
+    if (reason === 'escapeKeyDown' || reason === 'backdropClick') return;
     setOpen(false);
   };
 
