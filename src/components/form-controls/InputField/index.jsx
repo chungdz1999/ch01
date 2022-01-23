@@ -52,7 +52,7 @@ function InputField(props) {
           disabled={disable}
         />
       )}
-    />
+    ></Controller>
   );
 }
 

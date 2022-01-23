@@ -34,11 +34,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-RegisterForm.propTypes = {
+LoginForm.propTypes = {
     onSubmit: PropTypes.func,
 };
 
-function RegisterForm(props) {
+function LoginForm(props) {
     const classes = useStyles();
 
     // const schema = yup.object().shape({
@@ -51,31 +51,20 @@ function RegisterForm(props) {
     // });     
 
     const schema = yup.object().shape({
-        fullName: yup.string()
-            .required('Please enter your full name.')
-            .test('Should has at least two words.', 'Please enter at least two words.', value => {
-                return value.split(' ').length >= 2;
-            }),
-
-        email: yup.string()
+       
+        identifier: yup.string()
             .required('pls enter your email')
             .email('pls enter a valid email your ok '),
 
         password: yup.string()
             .required('pls enter your password')
-            .min(6, 'pls input in 6 word'),
 
-        retypePassword: yup.string()
-            .required('pls enter your password')
-            .oneOf([yup.ref('password')], ('password dose not match'))
     });
 
     const form = useForm({
         defaultValues: {
-            fullName: '',
-            email: '',
+            identifier: '',
             password: '',
-            retypePassword: ''
         },
         // reValidateMode: 'onSubmit',
         resolver: yupResolver(schema),
@@ -115,13 +104,12 @@ function RegisterForm(props) {
 
 
             <form onSubmit={form.handleSubmit(handleSubmit)} >
-                <InputField name="fullName" label="Full Name" form={form} />
-                <InputField name="email" label="Email" form={form} />
+                
+                <InputField name="identifier" label="Email" form={form} />
                 <PasswordField name="password" label="Password" form={form} />
-                <PasswordField name="retypePassword" label="Retype Password" form={form} />
-
+               
                 <Button disabled={isSubmitting} type='submit' className={classes.submit} variant="contained" color='primary' fullWidth >
-                    Tao tai khoan
+                    Login ahihi
                 </Button>
             </form>
 
@@ -129,4 +117,4 @@ function RegisterForm(props) {
     );
 }
 
-export default RegisterForm;
+export default LoginForm;

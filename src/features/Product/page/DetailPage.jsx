@@ -2,13 +2,18 @@ import { Box, Container, Grid, Paper } from '@mui/material';
 
 // import { styled } from '@mui/material/styles';
 import React from 'react';
-import { useRouteMatch } from 'react-router-dom';
+import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import ProductInfo from '../components/ProductInfo';
 import ProductThumbnail from '../components/ProductThumbnail';
 import useProductDetail from '../hooks/useProductDetail';
 import AddToCart from '../components/AddToCart';
-
-
+import ProductMenu from '../components/ProductMenu';
+import ProductDescription from '../components/ProductDescription';
+import ProductAdditional from '../components/ProductAdditional';
+import ProductReviews from '../components/ProductReviews';
+import LinearProgress from '@mui/material/LinearProgress';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../../features/Cart/CartSlice';
 // DetailPage.propTypes = {
 
 // };
@@ -24,22 +29,40 @@ function DetailPage() {
     // }));
 
     const {
-        params: { productId, } } = useRouteMatch();
-
+        params: { productId }, url
+    } = useRouteMatch();
+    // console.log(productId);
     const { product, loading } = useProductDetail(productId);
+    const dispatch = useDispatch();
 
     if (loading) {
-        return <Box>ahihi</Box>
+        return <Box sx={{
+            width: '100%',
+            top: 0,
+            left: 0,
+            position: 'fixed',
+        }}>
+            <LinearProgress  />
+        </Box>
     }
 
-    const handleOnSubmit = (FromValue) => {
-        console.log('From value', FromValue);
+    const handleOnSubmit = ({quantity}) => {
+        // console.log('From value', FromValue);
+        const action = addToCart({
+            id: product.id,
+            product,
+            quantity,
+        })
+        console.log(action);
+        dispatch(action);
     }
 
     return (
-        <Box >
+        <Box sx={{
+            // paddingBottom: 5,
+        }}>
             <Container>
-                <Grid container spacing={0.5}>
+                <Grid container spacing={2}>
                     <Grid item xs={4} >
                         <Paper elevation={0}>
                             <ProductThumbnail product={product} />
@@ -52,6 +75,20 @@ function DetailPage() {
                         </Paper>
                     </Grid>
                 </Grid>
+                <ProductMenu />
+
+                <Switch>
+                    <Route exact path={url}>
+                        <ProductDescription product={product} />
+                    </Route>
+
+
+                    <Route path={`${url}/additional`} component={ProductAdditional} />
+
+
+                    <Route path={`${url}/reviews`} component={ProductReviews} />
+                </Switch>
+
             </Container>
         </Box>
     );

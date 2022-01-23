@@ -8,6 +8,7 @@ AlbumList.propTypes = {
 };
 
 function AlbumList({albumList}) {
+    // const { albumList } = props;
     return (
         <div>
             <ul className="album-list">
