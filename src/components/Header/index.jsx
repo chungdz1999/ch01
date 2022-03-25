@@ -112,7 +112,7 @@ export default function Header() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            <Link to='/' className={classes.link}> Shop kem </Link>
+            <Link to='/' className={classes.link}> Shop </Link>
           </Typography>
 
           <NavLink to='/product' className={classes.link}>
