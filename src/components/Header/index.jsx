@@ -115,17 +115,17 @@ export default function Header() {
             <Link to='/' className={classes.link}> Shop </Link>
           </Typography>
 
-          <NavLink to='/product' className={classes.link}>
+          <NavLink to='/' className={classes.link}>
             <Button color="inherit">Products</Button>
           </NavLink>
 
-          <NavLink to='/todos' className={classes.link}>
+          {/* <NavLink to='/todos' className={classes.link}>
             <Button color="inherit">Todos</Button>
           </NavLink>
 
           <NavLink to='/albums' className={classes.link} >
             <Button color="inherit">Album</Button>
-          </NavLink>
+          </NavLink> */}
 
           <IconButton
             size="medium"
