@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Header() {
-  
+
   const dispath = useDispatch();
   const [open, setOpen] = useState(false);
 
@@ -98,10 +98,10 @@ export default function Header() {
   };
 
   const handleLogOut = () => {
-      const action = logOut();
-      dispath(action);
+    const action = logOut();
+    dispath(action);
 
-      setAnchorEl(null);
+    setAnchorEl(null);
   };
 
   return (
@@ -155,9 +155,9 @@ export default function Header() {
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
         onClose={handleCloseMenu}
-        // MenuListProps={{
-        //   'aria-labelledby': 'basic-button',
-        // }}
+      // MenuListProps={{
+      //   'aria-labelledby': 'basic-button',
+      // }}
       >
         <MenuItem onClick={handleCloseMenu}>My account</MenuItem>
         <MenuItem onClick={handleLogOut}>Logout</MenuItem>
@@ -182,7 +182,7 @@ export default function Header() {
 
               <Box textAlign='center'>
                 <Button color='primary' onClick={() => setMode(MODE.LOGIN)}>
-                FORM REGISTER
+                  FORM LOGIN
                 </Button>
               </Box>
             </>
@@ -194,7 +194,7 @@ export default function Header() {
 
               <Box textAlign='center'>
                 <Button color='primary' onClick={() => setMode(MODE.REGISTER)}>
-                  FORM LOGIN
+                  FORM REGISTER
                 </Button>
               </Box>
             </>
@@ -210,7 +210,7 @@ export default function Header() {
         {/* </DialogActions> */}
       </Dialog>
 
-    
+
     </div>
   );
 }
