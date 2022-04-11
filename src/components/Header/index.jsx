@@ -182,7 +182,7 @@ export default function Header() {
 
               <Box textAlign='center'>
                 <Button color='primary' onClick={() => setMode(MODE.LOGIN)}>
-                  ok qua Dang ki
+                FORM REGISTER
                 </Button>
               </Box>
             </>
@@ -194,7 +194,7 @@ export default function Header() {
 
               <Box textAlign='center'>
                 <Button color='primary' onClick={() => setMode(MODE.REGISTER)}>
-                  ok qua Dang nhap
+                  FORM LOGIN
                 </Button>
               </Box>
             </>
