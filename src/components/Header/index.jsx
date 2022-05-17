@@ -115,7 +115,7 @@ export default function Header() {
             <Link to='/' className={classes.link}> Shop </Link>
           </Typography>
 
-          <NavLink to='/' className={classes.link}>
+          <NavLink to='/product' className={classes.link}>
             <Button color="inherit">Products</Button>
           </NavLink>
 

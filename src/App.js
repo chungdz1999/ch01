@@ -36,7 +36,7 @@ function App() {
         {/* <Route path='/' component={CounterFeature} exact /> */}
         {/* <Route path='/todos' component={TodoFeature} />
         <Route path='/albums' component={AlbumFeature} /> */}
-        <Route path='/' component={Product} />
+        <Route path='/product' component={Product} />
         <Route path='/cart' component={CartFeature} />
 
         <Route component={NotFound} />

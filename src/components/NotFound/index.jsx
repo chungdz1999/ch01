@@ -7,7 +7,7 @@ NotFound.propTypes = {
 function NotFound(props) {
     return (
         <div>
-            Deooo chay ddc nha !!!!!
+          
         </div>
     );
 }

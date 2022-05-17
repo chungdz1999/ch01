@@ -24,6 +24,7 @@ function Product({ productSP }) {
 
 const handleClick = () => {
     history.push(`/product/${productSP.id}`)
+    // history.push(`/${productSP.id}`)
 };
 
     return (
